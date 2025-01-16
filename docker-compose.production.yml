@@ -21,7 +21,7 @@ services:
     container_name: kittygram_backend
     env_file: .env
     ports: 
-      - "8000:8000"
+      - "9000:9000"
     volumes:
       - static:/backend_static
       - media:/app/media
