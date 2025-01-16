@@ -24,7 +24,7 @@ services:
       - "8000:8000"
     volumes:
       - static:/backend_static
-      - media:/backend/media
+      - media:/app/media
 
   kittygram_frontend:
     container_name: kittygram_frontend
