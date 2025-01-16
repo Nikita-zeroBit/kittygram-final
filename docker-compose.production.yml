@@ -40,8 +40,8 @@ services:
     ports:
       - 80:80
     depends_on:
-      - backend
-      - frontend
+      - kittygram_backend
+      - kittygram_frontend
     volumes:
       - static:/static
       - media:/media
