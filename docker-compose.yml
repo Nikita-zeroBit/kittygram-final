@@ -18,8 +18,8 @@ services:
     depends_on:
       - postgres
     volumes:
-      - static:/static/
-      - media:/media/
+      - static:/backend_static
+      - media:/app/media
 
   kittygram_frontend:
     env_file: .env
@@ -34,7 +34,7 @@ services:
     container_name: kittygram_gateway
     restart: always
     ports:
-      - "8000:80"
+      - 8000:80
     volumes:
       - static:/static
       - media:/media/
