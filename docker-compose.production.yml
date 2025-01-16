@@ -16,6 +16,7 @@ services:
 
   kittygram_backend:
     image: nikitazerobit/kittygram_backend
+    container_name: kittygram_backend
     env_file: .env
     depends_on:
       - postgres
@@ -24,6 +25,7 @@ services:
       - media:/media/
 
   kittygram_frontend:
+    container_name: kittygram_frontend
     env_file: .env
     image: nikitazerobit/kittygram_frontend
     command: cp -r /app/build/. /static/
@@ -31,6 +33,7 @@ services:
       - static:/static
 
   kittygram_gateway:
+    container_name: kittygram_gateway
     image: nikitazerobit/kittygram_gateway
     restart: always
     ports:
