@@ -18,15 +18,14 @@ services:
     depends_on:
       - postgres
     volumes:
-      - static:/backend_static
-      - media:/app/media
+      - static:/backend
+      - media:/backend/media
 
   kittygram_frontend:
     env_file: .env
     build: ./frontend/
-    command: cp -r /app/build/. /static/
     volumes:
-      - static:/static
+      - static:/app/build
 
   kittygram_gateway:
     build:
@@ -34,7 +33,10 @@ services:
     container_name: kittygram_gateway
     restart: always
     ports:
-      - 8000:80
+      - 80:80
+    depends_on:
+      - backend
+      - frontend
     volumes:
       - static:/static
-      - media:/media/
+      - media:/media
