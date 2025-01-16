@@ -1,3 +1,4 @@
 .env
 _env.example
 .DS_Store
+__pycache__
