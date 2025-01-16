@@ -13,7 +13,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   kittygram_backend:
-    build: ./backend/
+    image: nikitazerobit/kittygram_backend
     env_file: .env
     depends_on:
       - postgres
@@ -23,18 +23,16 @@ services:
 
   kittygram_frontend:
     env_file: .env
-    build: ./frontend/
+    image: nikitazerobit/kittygram_frontend
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
 
   kittygram_gateway:
-    build:
-      context: ./nginx
-    container_name: kittygram_gateway
+    image: nikitazerobit/kittygram_gateway
     restart: always
     ports:
-      - "80:80"
+      - "8000:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - static:/static

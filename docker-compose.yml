@@ -34,7 +34,7 @@ services:
     container_name: kittygram_gateway
     restart: always
     ports:
-      - "80:80"
+      - "8000:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - static:/static
