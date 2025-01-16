@@ -15,6 +15,8 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   kittygram_backend:
+    depends_on:
+      - postgres
     image: nikitazerobit/kittygram_backend
     container_name: kittygram_backend
     env_file: .env
@@ -23,8 +25,6 @@ services:
     volumes:
       - static:/backend_static
       - media:/backend/media
-    depends_on:
-      - postgres
 
   kittygram_frontend:
     container_name: kittygram_frontend
