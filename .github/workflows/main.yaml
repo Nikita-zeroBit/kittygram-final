@@ -150,8 +150,7 @@ jobs:
           sudo docker compose -f docker-compose.production.yml down
           sudo docker compose -f docker-compose.production.yml up -d
           sudo docker compose -f docker-compose.production.yml exec kittygram_backend python manage.py migrate
-          sudo docker compose -f docker-compose.production.yml exec kittygram_backend python manage.py collectstatic
-          sudo docker compose -f docker-compose.production.yml exec kittygram_backend cp -r /app/collected_static/. /backend_static/static/
+          sudo docker compose -f docker-compose.production.yml exec kittygram_backend python manage.py collectstatic --no-input
     
   auto-tests:
     runs-on: ubuntu-latest
@@ -184,4 +183,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        message: Поздравляю! Деплой успешен!
+        message: Поздравляю ${{ github.actor }}! Деплой успешен! Ссылка на коммит - https://github.com/${{ github.repository }}/commit/${{ github.sha }}
