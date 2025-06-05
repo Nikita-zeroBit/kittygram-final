@@ -52,5 +52,4 @@ variable "vm_image_id" {
 variable "ssh_pub_key_path" {
   description = "Путь к публичному SSH-ключу"
   type        = string
-  default     = "~/.ssh/id_ed25519.pub"
 }
