@@ -28,14 +28,12 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -backend-config="access_key=${{ secrets.ACCESS_KEY }}" -backend-config=${{ secrets.SECRET_KEY }}
         env:
           TF_VAR_yc_token: ${{ secrets.YC_TOKEN }}
           TF_VAR_yc_cloud_id: ${{ secrets.YC_CLOUD_ID }}
           TF_VAR_yc_folder_id: ${{ secrets.YC_FOLDER_ID }}
           TF_VAR_ssh_pub_key: ${{ secrets.YC_SSH_PUB_KEY }}
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
