@@ -2,4 +2,3 @@
 _env.example
 .DS_Store
 __pycache__
-terraform.tfstate
