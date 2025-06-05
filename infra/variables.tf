@@ -1,19 +1,19 @@
 variable "yc_token" {
   description = "API токен для доступа к Yandex Cloud"
   type        = string
-  default     = "y0__xD4katQGMHdEyCz5anXEp-MPDju5eenWNbQfumjC3QB9HOn"
+  default     = ""
 }
 
 variable "yc_cloud_id" {
   description = "ID облака в Yandex Cloud"
   type        = string
-  default     = "b1g445s7divgt6d0aber"
+  default     = ""
 }
 
 variable "yc_folder_id" {
   description = "ID каталога в Yandex Cloud"
   type        = string
-  default     = "b1gdfpndo7v8cf2ngmo7"
+  default     = ""
 }
 
 variable "yc_zone" {
