@@ -18,11 +18,11 @@ jobs:
     defaults:
       run:
         working-directory: ./infra
-        env:
-            YC_TOKEN: ${{ secrets.YC_TOKEN }}
-            YC_CLOUD_ID: ${{ secrets.YC_CLOUD_ID }}
-            YC_FOLDER_ID: ${{ secrets.YC_FOLDER_ID }}
-            YC_ZONE: ${{ secrets.YC_ZONE }}
+    env:
+        YC_TOKEN: ${{ secrets.YC_TOKEN }}
+        YC_CLOUD_ID: ${{ secrets.YC_CLOUD_ID }}
+        YC_FOLDER_ID: ${{ secrets.YC_FOLDER_ID }}
+        YC_ZONE: ${{ secrets.YC_ZONE }}
 
     steps:
       - name: Checkout code
