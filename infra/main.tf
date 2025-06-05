@@ -12,7 +12,7 @@ terraform {
       }
       bucket = "kitty-s3-bucket"
       region = "ru-central1"
-      key    = "tf-state.tfstate"
+      key    = "tf-state/terraform.tfstate"
 
       skip_region_validation      = true
       skip_credentials_validation = true

@@ -1,19 +1,16 @@
 variable "yc_token" {
   description = "API токен для доступа к Yandex Cloud"
   type        = string
-  default     = ""
 }
 
 variable "yc_cloud_id" {
   description = "ID облака в Yandex Cloud"
   type        = string
-  default     = ""
 }
 
 variable "yc_folder_id" {
   description = "ID каталога в Yandex Cloud"
   type        = string
-  default     = ""
 }
 
 variable "yc_zone" {
@@ -55,5 +52,4 @@ variable "vm_image_id" {
 variable "ssh_pub_key_path" {
   description = "Путь к публичному SSH-ключу"
   type        = string
-  default     = "~/.ssh/id_ed25519.pub"
 }
