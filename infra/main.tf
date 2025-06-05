@@ -7,7 +7,9 @@ terraform {
   }
 
   backend "s3" {
-    endpoint                    = "https://storage.yandexcloud.net"
+    endpoints = {
+      s3 = "https://storage.yandexcloud.net"
+    }
     bucket                      = "kitty-s3-backet"
     region                      = "ru-central1"
     key                         = "tf-state.tfstate"
