@@ -1,0 +1,21 @@
+#cloud-config
+ssh_pwauth: no
+
+users:
+  - name: user
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - "${SSH_KEY}"
+
+write_files:
+  - content: |
+      #!/bin/bash
+      apt-get update
+      apt-get install -y docker.io docker-compose
+      usermod -aG docker user
+    path: /root/install-docker.sh
+    permissions: "0740"
+
+runcmd:
+  - bash /root/install-docker.sh > /var/log/docker-install.log 2>&1
