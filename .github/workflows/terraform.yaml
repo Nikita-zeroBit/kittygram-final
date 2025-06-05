@@ -37,7 +37,7 @@ jobs:
           yc_token: ${{ secrets.YC_TOKEN }}
           yc_cloud_id: ${{ secrets.YC_CLOUD_ID }}
           yc_folder_id: ${{ secrets.YC_FOLDER_ID }}
-          ssh_pub_key: ${{ secrets.YC_SSH_PUB_KEY }}
+          ssh_pub_key: ${{ secrets.SSH_KEY }}
 
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
@@ -46,7 +46,7 @@ jobs:
           yc_token: ${{ secrets.YC_TOKEN }}
           yc_cloud_id: ${{ secrets.YC_CLOUD_ID }}
           yc_folder_id: ${{ secrets.YC_FOLDER_ID }}
-          ssh_pub_key: ${{ secrets.YC_SSH_PUB_KEY }}
+          ssh_pub_key: ${{ secrets.SSH_KEY }}
 
       - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'apply' }}
@@ -55,7 +55,7 @@ jobs:
           yc_token: ${{ secrets.YC_TOKEN }}
           yc_cloud_id: ${{ secrets.YC_CLOUD_ID }}
           yc_folder_id: ${{ secrets.YC_FOLDER_ID }}
-          ssh_pub_key: ${{ secrets.YC_SSH_PUB_KEY }}
+          ssh_pub_key: ${{ secrets.SSH_KEY }}
 
       - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'destroy' }}
@@ -66,6 +66,6 @@ jobs:
           yc_token: ${{ secrets.YC_TOKEN }}
           yc_cloud_id: ${{ secrets.YC_CLOUD_ID }}
           yc_folder_id: ${{ secrets.YC_FOLDER_ID }}
-          ssh_pub_key: ${{ secrets.YC_SSH_PUB_KEY }}
+          ssh_pub_key: ${{ secrets.SSH_KEY }}
 
       
