@@ -22,7 +22,9 @@ resource "yandex_compute_instance" "kittygram_vm" {
   }
 
   metadata = {
-    SSH_KEY  = var.ssh_pub_key
-    user-data = file("cloud-init.yaml")
+    user-data = templatefile("${path.module}/cloud-init.yaml",
+      {
+        SSH_KEY = var.ssh_public_key
+    })
   }
 }
