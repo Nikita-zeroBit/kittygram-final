@@ -31,6 +31,16 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
+      - name: Create terraform variables file
+        working-directory: ./infra
+        run: |
+          cat > terraform.tfvars <<EOF
+          yc_token = "${{ secrets.YC_TOKEN }}"
+          yc_cloud_id = "${{ secrets.YC_CLOUD_ID }}"
+          yc_folder_id = "${{ secrets.YC_FOLDER_ID }}"
+          yc_zone = "${{ secrets.YC_ZONE }}"
+          EOF
+
       - name: Terraform Init
         run: terraform init
 
