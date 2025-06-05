@@ -4,7 +4,7 @@ resource "yandex_vpc_network" "kittygram_network" {
 
 resource "yandex_vpc_subnet" "kittygram_subnet" {
   name           = "kittygram-subnet"
-  zone           = var.zone
+  zone           = var.yc_zone
   v4_cidr_blocks = var.subnet_cidr
   network_id     = yandex_vpc_network.kittygram_network.id
 }

@@ -1,16 +1,16 @@
 resource "yandex_compute_instance" "kittygram_vm" {
   name = "kittygram-vm"
 
-  platform_id = "standart-v3"
+  platform_id = "standard-v3"
 
   resources {
     memory = var.vm_memory
-    cores  = var.vm_cores
+    cores  = var.vm_core
   }
 
   boot_disk {
     initialize_params {
-      image_id = data.yandex_compute_image.image.id
+      image_id = var.vm_image_id
       size     = var.vm_disk_size
     }
   }

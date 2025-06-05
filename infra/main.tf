@@ -2,23 +2,18 @@ terraform {
   required_providers {
     yandex = {
       source  = "yandex-cloud/yandex"
-      version = "~> 0.89.0"
+      version = "~> 0.90.0"
     }
   }
 
   backend "s3" {
-    endpoint = {
-        s3 = "https://storage.yandexcloud.net"
-      }
-      bucket = "kitty-s3-bucket"
-      region = "ru-central1"
-      key    = "tf-state/terraform.tfstate"
-
-      skip_region_validation      = true
-      skip_credentials_validation = true
-      skip_requesting_account_id  = true
-      skip_s3_checksum            = true
-    }
+    endpoint                    = "https://storage.yandexcloud.net"
+    bucket                      = "kitty-s3-backet"
+    region                      = "ru-central1"
+    key                         = "tf-state.tfstate"
+    skip_region_validation      = true
+    skip_credentials_validation = true
+  }
 }
 
 provider "yandex" {
