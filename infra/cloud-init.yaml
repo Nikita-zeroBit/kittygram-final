@@ -12,7 +12,7 @@ write_files:
   - content: |
       #!/bin/bash
       apt-get update
-      apt-get install -y docker.io docker-compose
+      apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
       usermod -aG docker user
     path: /root/install-docker.sh
     permissions: "0740"
