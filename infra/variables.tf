@@ -49,7 +49,7 @@ variable "vm_image_id" {
   default     = "fd80bm0rh4rkepi5ksdi" # ubuntu-24-04-lts-v20250324
 }
 
-variable "ssh_key" {
+variable "ssh_pub_key" {
   description = "Публичной SSH-ключ"
   type        = string
 }
